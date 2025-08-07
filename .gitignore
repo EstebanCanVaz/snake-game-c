@@ -1,0 +1,45 @@
+# Archivos de compilación
+*.exe
+*.o
+*.obj
+*.out
+
+# Archivos de puntuaciones (opcional - puedes incluirlos si quieres)
+puntuaciones.txt
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos de backup
+*~
+*.bak
+*.tmp
+
+# Archivos de log
+*.log
+
+# Archivos de debug
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Archivos de Visual Studio
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+.vs/
+
+# Archivos de MinGW
+*.a
+*.dll
+*.so
+*.dylib
