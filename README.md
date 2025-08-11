@@ -1,144 +1,140 @@
-# 🐍 Juego Snake en C
+# 🐍 Snake Game in C
 
-Proyecto escolar que implementa el clásico juego Snake en lenguaje C, con características como sistema de puntuaciones, múltiples dificultades y modo multijugador.
+School project that implements the classic Snake game in C language, featuring a scoring system, multiple difficulties, and multiplayer mode.
 
-## 🎮 Características
+## 🎮 Features
 
-- **Modo Individual**: Juego clásico de Snake con sistema de puntuación
-- **Modo Multijugador**: Dos jugadores juegan por turnos
-- **Sistema de Dificultad**: 3 niveles (Fácil, Normal, Difícil)
-- **Sistema de Puntuaciones**: Guardado y carga de puntuaciones desde archivo
-- **Interfaz Gráfica**: Tablero dibujado con caracteres ASCII
-- **Persistencia de Datos**: Las puntuaciones se guardan automáticamente
+- **Single Player Mode**: Classic Snake game with scoring system
+- **Multiplayer Mode**: Two players take turns
+- **Difficulty System**: 3 levels (Easy, Normal, Hard)
+- **Scoring System**: Save and load scores from file
+- **Graphical Interface**: Board drawn with ASCII characters
+- **Data Persistence**: Scores are automatically saved
 
-## 🚀 Instalación y Ejecución
+## 🚀 Installation and Execution
 
-### Requisitos
-- Compilador de C (GCC, Clang, etc.)
-- Sistema operativo Windows (por el uso de `windows.h` y `conio.h`)
-- Terminal en pantalla completa para mejor experiencia
+### Requirements
+- C compiler (GCC, Clang, etc.)
+- Windows operating system (due to use of `windows.h` and `conio.h`)
+- Full-screen terminal for best experience
 
-### Compilación
+### Compilation
 ```bash
 gcc -o snake snake.c
 ```
 
-### Ejecución
+### Execution
 ```bash
 ./snake
 ```
 
-**⚠️ IMPORTANTE**: Ejecuta el programa en pantalla completa para la mejor experiencia de juego.
+**⚠️ IMPORTANT**: Run the program in full-screen for the best gaming experience.
 
-## 🎯 Cómo Jugar
+## 🎯 How to Play
 
-### Controles
-- **W**: Mover hacia arriba
-- **A**: Mover hacia la izquierda
-- **S**: Mover hacia abajo
-- **D**: Mover hacia la derecha
+### Controls
+- **W**: Move up
+- **A**: Move left
+- **S**: Move down
+- **D**: Move right
 
-### Objetivo
-- Come las manzanas (■) para crecer y ganar puntos
-- Evita chocar contra las paredes del tablero
-- Evita chocar contra tu propio cuerpo
-- Intenta conseguir la puntuación más alta posible
+### Objective
+- Eat the apples (■) to grow and earn points
+- Avoid hitting the board walls
+- Avoid hitting your own body
+- Try to achieve the highest score possible
 
-## 🎛️ Modos de Juego
+## 🎛️ Game Modes
 
-### 1. JUGAR (Modo Individual)
-- Juego clásico de Snake
-- Sistema de puntuación automático
-- Guardado de puntuaciones con alias
+### 1. PLAY (Single Player Mode)
+- Classic Snake game
+- Automatic scoring system
+- Score saving with aliases
 
-### 2. DIFICULTAD
-- **Fácil**: Movimiento lento (90ms)
-- **Normal**: Velocidad media (60ms)
-- **Difícil**: Movimiento rápido (30ms)
+### 2. DIFFICULTY
+- **Easy**: Slow movement (90ms)
+- **Normal**: Medium speed (60ms)
+- **Hard**: Fast movement (30ms)
 
-### 3. MULTIJUGADOR
-- Dos jugadores juegan por turnos
-- Comparación de puntuaciones al final
-- Declaración automática del ganador
+### 3. MULTIPLAYER
+- Two players take turns
+- Score comparison at the end
+- Automatic winner declaration
 
-### 4. PUNTUACIONES
-- Visualización de puntuaciones guardadas
-- Lista ordenada por puntuación
+### 4. SCORES
+- View saved scores
+- List sorted by score
 
-### 5. CÓMO JUGAR
-- Instrucciones detalladas del juego
+### 5. HOW TO PLAY
+- Detailed game instructions
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```
 snake/
-├── snake.c          # Código fuente principal
-├── snake.exe        # Ejecutable compilado
-├── puntuaciones.txt # Archivo de puntuaciones (se crea automáticamente)
-└── README.md        # Este archivo
+├── snake.c          # Main source code
+├── snake.exe        # Compiled executable
+├── puntuaciones.txt # Score file (created automatically)
+└── README.md        # This file
 ```
 
-## 🏗️ Arquitectura del Código
+## 🏗️ Code Architecture
 
-### Estructuras de Datos
-- `struct snake`: Lista enlazada para el cuerpo de la serpiente
-- `struct manzana`: Estructura para las manzanas del juego
-- `struct Puntuacion`: Lista enlazada para almacenar puntuaciones
+### Data Structures
+- `struct snake`: Linked list for snake body
+- `struct manzana`: Structure for game apples
+- `struct Puntuacion`: Linked list for storing scores
 
-### Funciones Principales
-- **Gestión de Juego**: `estadoInicial()`, `mover()`, `crecer()`
-- **Detección de Colisiones**: `choqueTablero()`, `choqueSerpiente()`, `choqueManzana()`
-- **Sistema de Puntuaciones**: `insertarPuntuacion()`, `guardarPuntuaciones()`
-- **Interfaz**: `imprimirTablero()`, `printSnake()`, `imprimirManzana()`
+### Main Functions
+- **Game Management**: `estadoInicial()`, `mover()`, `crecer()`
+- **Collision Detection**: `choqueTablero()`, `choqueSerpiente()`, `choqueManzana()`
+- **Scoring System**: `insertarPuntuacion()`, `guardarPuntuaciones()`
+- **Interface**: `imprimirTablero()`, `printSnake()`, `imprimirManzana()`
 
-## 🎨 Características Técnicas
+## 🎨 Technical Features
 
-- **Memoria Dinámica**: Uso de `malloc()` para estructuras dinámicas
-- **Entrada No Bloqueante**: Uso de `kbhit()` y `getch()`
-- **Posicionamiento de Cursor**: Función `gotoxy()` personalizada
-- **Persistencia de Datos**: Sistema de archivos para puntuaciones
-- **Prevención de Errores**: Evita giros de 180° y manejo de memoria
+- **Dynamic Memory**: Use of `malloc()` for dynamic structures
+- **Non-blocking Input**: Use of `kbhit()` and `getch()`
+- **Cursor Positioning**: Custom `gotoxy()` function
+- **Data Persistence**: File system for scores
+- **Error Prevention**: Prevents 180° turns and memory management
 
-## 📊 Sistema de Puntuaciones
+## 📊 Scoring System
 
-Las puntuaciones se guardan en el archivo `puntuaciones.txt` con el formato:
+Scores are saved in the `puntuaciones.txt` file with the format:
 ```
-1. ALIAS --------- PUNTUACION
-2. ALIAS --------- PUNTUACION
+1. ALIAS --------- SCORE
+2. ALIAS --------- SCORE
 ...
 ```
 
-## 🔧 Personalización
+## 🔧 Customization
 
-### Cambiar Velocidad del Juego
-Modifica los valores en la función `main()`:
+### Change Game Speed
+Modify the values in the `main()` function:
 ```c
-case 1: velocidad = 90;  // Fácil
+case 1: velocidad = 90;  // Easy
 case 2: velocidad = 60;  // Normal  
-case 3: velocidad = 30;  // Difícil
+case 3: velocidad = 30;  // Hard
 ```
 
-### Cambiar Tamaño del Tablero
-Modifica las constantes en `imprimirTablero()` y `choqueTablero()`.
+### Change Board Size
+Modify the constants in `imprimirTablero()` and `choqueTablero()`.
 
-## 🐛 Solución de Problemas
+## 🐛 Troubleshooting
 
-### Error de Compilación
-- Asegúrate de tener un compilador de C instalado
-- En Windows, usa MinGW o Visual Studio
+### Compilation Error
+- Make sure you have a C compiler installed
+- On Windows, use MinGW or Visual Studio
 
-### Problemas de Visualización
-- Ejecuta en pantalla completa
-- Usa una terminal compatible con caracteres ASCII
+### Display Issues
+- Run in full-screen
+- Use a terminal compatible with ASCII characters
 
-### Problemas de Rendimiento
-- Cierra otras aplicaciones para mejor rendimiento
-- En modo difícil, el juego puede ser muy rápido
-
-
-
-
+### Performance Issues
+- Close other applications for better performance
+- In hard mode, the game can be very fast
 
 ---
 
-**¡Disfruta jugando Snake!** 🐍🎮
+**Enjoy playing Snake!** 🐍🎮
